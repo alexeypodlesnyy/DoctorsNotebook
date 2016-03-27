@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editDateCorrection"
+        android:hint="@string/add_patient_date" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editFamilyNameCorrection"
+        android:hint="@string/activity_correction_family_name" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editNameCorrection"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/add_patient_name" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editHistoryCorrection"
+        android:hint="@string/add_patient_history_number" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editDiagnosisCorrection"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/add_patient_diagnosis" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editAnaesthesiaCorrection"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/add_patient_anaesthesia" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editSpecialMarkCorrection"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.86"
+        android:hint="@string/add_patient_special_mark" />
+
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Payment"
+        android:id="@+id/checkBoxCorrection"
+        android:layout_gravity="center_horizontal"
+        android:checked="false" />
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activiti_correction_save_changes_btn"
+        android:id="@+id/addPatient"
+        android:layout_gravity="center_horizontal"
+        android:onClick="correctRow"
+        android:singleLine="false" />
+
+
+</LinearLayout>

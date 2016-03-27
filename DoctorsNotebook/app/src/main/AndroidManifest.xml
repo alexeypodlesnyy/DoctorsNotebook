@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="araragi.doctorsnotebook" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="DoctorsNotebook"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="DoctorsNotebook" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.AddNewPatientActivity"
+            android:label="AddNewPatientActivity">
+        </activity>
+        <activity
+            android:name=".activity.CorrectionActivity"
+            android:label="CorrectionActivity">
+        </activity>
+        <activity
+            android:name=".activity.ListActivity"
+            android:label="ListActivity">
+
+        </activity>
+        <activity
+            android:name=".activity.SearchActivity"
+            android:label="SearchActivity">
+
+        </activity>
+    </application>
+
+</manifest>
