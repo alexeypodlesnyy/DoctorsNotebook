@@ -32,14 +32,18 @@ public class ListAdapter extends android.support.v4.widget.CursorAdapter{
         TextView listItem2 = (TextView) view.findViewById(R.id.list_item_2);
         String msg = cursor.getString(DBAdapter.COL_FAMILY_NAME) + "\n" + cursor.getString(DBAdapter.COL_DATA);
         listItem.setText(msg);
+
         String msg2 = cursor.getString(DBAdapter.COL_DIAGNOSIS) + "\n" + cursor.getString(DBAdapter.COL_ANAESTHESIA);
+
+        listItem2.setText(msg2);
+
         if(cursor.getString(DBAdapter.COL_PAYMENT).equals("net")) {
             listItem2.setTextColor(Color.RED);
         }
         else{
             listItem2.setTextColor(Color.BLACK);
         }
-        listItem2.setText(msg2);
+
 
     }
 
