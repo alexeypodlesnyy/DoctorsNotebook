@@ -35,7 +35,8 @@ public class DBAdapter {
     public static final int COL_SPESIAL_MARK = 7;
     public static final int COL_PAYMENT = 8;
 
-    public static final String[] ALL_KEYS = new String[] {KEY_ROWID,KEY_DATA, KEY_FAMILY_NAME, KEY_NAME, KEY_HISTORY_NUMBER,
+    public static final String[] ALL_KEYS = new String[] {KEY_ROWID,KEY_DATA, KEY_FAMILY_NAME,
+            KEY_NAME, KEY_HISTORY_NUMBER,
             KEY_DIAGNOSIS, KEY_ANAESTHESIA_TYPE, KEY_SPECIAL_MARK, KEY_PAYMENT};
 
     public static final String DATABASE_NAME = "patient_database.db";
@@ -53,7 +54,7 @@ public class DBAdapter {
 
     private DatabaseHelper dbhalper;
     private SQLiteDatabase database;
-    private Cursor allRows;
+
 
     public DBAdapter(Context ctx){
         this.context = ctx;
@@ -71,7 +72,8 @@ public class DBAdapter {
 
 
 
-    public long insertRow(String date, String familyName, String name, int historyNumber, String diagnosis,
+    public long insertRow(String date, String familyName, String name, int historyNumber,
+                          String diagnosis,
                           String anaesthesia, String spesialMark, String payment){
         ContentValues values = new ContentValues();
         values.put(KEY_DATA, date);
@@ -102,7 +104,8 @@ public class DBAdapter {
 
     public Cursor getAllRows() {
         String where = null;
-        Cursor c = database.query(true, DATABASE_TABLE, ALL_KEYS, where, null, null, null, null, null);
+        Cursor c = database.query(true, DATABASE_TABLE, ALL_KEYS, where, null, null, null,
+                KEY_DATA + " DESC", null);
         if(c != null){
             c.moveToFirst();
         }
@@ -119,8 +122,9 @@ public class DBAdapter {
     }
 
 
-    public boolean updateRow(long rowId, String data, String familyName, String name, int historyNumber, String diagnosis,
-                             String anaesthesia, String spesialMark, String payment) {
+    public boolean updateRow(long rowId, String data, String familyName, String name,
+                             int historyNumber, String diagnosis,
+                             String anaesthesia, String specialMark, String payment) {
         String where = KEY_ROWID + "=" + rowId;
 
         ContentValues newValues = new ContentValues();
@@ -130,21 +134,19 @@ public class DBAdapter {
         newValues.put(KEY_HISTORY_NUMBER, historyNumber);
         newValues.put(KEY_DIAGNOSIS, diagnosis);
         newValues.put(KEY_ANAESTHESIA_TYPE, anaesthesia);
-        newValues.put(KEY_SPECIAL_MARK, spesialMark);
+        newValues.put(KEY_SPECIAL_MARK, specialMark);
         newValues.put(KEY_PAYMENT, payment);
 
         return database.update(DATABASE_TABLE, newValues, where, null) != 0;
     }
 
     public Cursor getSearchResult(String key, String searchArgs) {
-        Log.e(TAG, "---Get string to search---");
         String where = key + " = ?";
         String[] args = new String[]{searchArgs};
         Cursor c = 	database.query(true, DBAdapter.DATABASE_TABLE, ALL_KEYS,
-                where, args, null, null, null, null);
+                where, args, null, null, KEY_DATA + " DESC", null);
         if (c != null) {
             c.moveToFirst();
-            Log.e(TAG, "---Cursor not null---");
         }
         return c;
     }
@@ -164,7 +166,7 @@ public class DBAdapter {
         @Override
         public void onUpgrade(SQLiteDatabase _db, int oldVersion, int newVersion){
             Log.w(TAG, "Upgrading application's database from version " + oldVersion
-                    + " to " + newVersion + ", which destroed all old data!");
+                    + " to " + newVersion + ", which will destroy all old data!");
 
             _db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
 

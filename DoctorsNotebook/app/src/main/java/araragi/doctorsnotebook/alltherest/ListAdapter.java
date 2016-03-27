@@ -36,6 +36,9 @@ public class ListAdapter extends android.support.v4.widget.CursorAdapter{
         if(cursor.getString(DBAdapter.COL_PAYMENT).equals("net")) {
             listItem2.setTextColor(Color.RED);
         }
+        else{
+            listItem2.setTextColor(Color.BLACK);
+        }
         listItem2.setText(msg2);
 
     }

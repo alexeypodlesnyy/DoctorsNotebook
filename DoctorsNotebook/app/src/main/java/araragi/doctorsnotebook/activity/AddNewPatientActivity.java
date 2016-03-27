@@ -25,7 +25,7 @@ public class AddNewPatientActivity extends ActionBarActivity{
     private EditText editSpesial;
     private CheckBox checkPayment;
 
-    private static final String TAG_ALEX = "Alex";
+
 
     DBAdapter patientDataBase;
 

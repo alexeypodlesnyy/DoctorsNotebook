@@ -3,10 +3,8 @@ package araragi.doctorsnotebook.activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
-
 import araragi.doctorsnotebook.alltherest.ListAdapter;
 import araragi.doctorsnotebook.database.DBAdapter;
 
@@ -17,7 +15,6 @@ public class ListActivity extends android.app.ListActivity{
 
     DBAdapter patientDataBase;
 
-    private static final String TAG_ALEX = "Alex";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

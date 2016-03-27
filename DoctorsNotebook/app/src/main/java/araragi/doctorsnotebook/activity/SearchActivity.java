@@ -4,21 +4,14 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-
 import araragi.doctorsnotebook.R;
 import araragi.doctorsnotebook.alltherest.ListAdapter;
-import araragi.doctorsnotebook.alltherest.PatientAccount;
 import araragi.doctorsnotebook.database.DBAdapter;
 
 /**
@@ -28,7 +21,6 @@ public class SearchActivity extends ActionBarActivity{
 
     DBAdapter patientDataBase;
 
-    private static final String TAG = "Search";
 
     EditText editSearch;
     ListView listView;
