@@ -16,6 +16,7 @@ import araragi.doctorsnotebook.database.DBAdapter;
  */
 public class AddNewPatientActivity extends ActionBarActivity{
 
+
     private EditText editDate;
     private EditText editFamilyName;
     private EditText editName;
@@ -32,7 +33,7 @@ public class AddNewPatientActivity extends ActionBarActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_patient_activity);
+        setContentView(R.layout.add_patient_with_scroll);
 
 
         editDate = (EditText) findViewById(R.id.editDate);

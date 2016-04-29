@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 import araragi.doctorsnotebook.R;
 import araragi.doctorsnotebook.alltherest.ListAdapter;
 import araragi.doctorsnotebook.database.DBAdapter;
@@ -55,6 +56,17 @@ public class SearchActivity extends ActionBarActivity{
 
             }
         });
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Long x = parent.getItemIdAtPosition(position);
+                patientDataBase.deleteRow(x);
+                Toast.makeText(SearchActivity.this, "Row was deleted.id = "+x.toString(), Toast.LENGTH_LONG).show();
+
+                return true;
+            }
+        });
 
 
     }
@@ -93,8 +105,6 @@ public class SearchActivity extends ActionBarActivity{
         listView.setAdapter(adapter);
 
 
-
     }
-
 
 }

@@ -4,6 +4,18 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_gravity="center_horizontal"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,6 +85,10 @@
         android:layout_gravity="center_horizontal"
         android:onClick="correctRow"
         android:singleLine="false" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </LinearLayout>

@@ -3,6 +3,7 @@ package araragi.doctorsnotebook.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -46,30 +47,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-    public void deleteAllAlertDialog(View v){
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setTitle("WARNING!!!")
-                .setMessage("Are you shure you whant to destroy all data!?")
-                .setCancelable(true)
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, "Good boy", Toast.LENGTH_LONG).show();
-                    }
-                }).
-                setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        patientDataBase.deleteAll();
-                        Toast.makeText(MainActivity.this, "DELETED!!!", Toast.LENGTH_LONG).show();
-                    }
-                });
 
-        AlertDialog alert = builder.create();
-        alert.show();
-
-
-    }
     public void goToAddPatientActivity(View v){
         Intent intent = new Intent(this, AddNewPatientActivity.class);
         startActivity(intent);
@@ -83,8 +61,14 @@ public class MainActivity extends ActionBarActivity {
     }
     public void goToList(View v){
 
-        Intent intent = new Intent(this, ListActivity.class);
-        intent.putExtra("show", SHOW_ALL);
+        Intent intent = new Intent(this, PatientsListActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void goToDatabase(View v){
+
+        Intent intent = new Intent(this, DatabaseActivity.class);
         startActivity(intent);
 
     }

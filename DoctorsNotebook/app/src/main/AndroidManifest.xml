@@ -9,7 +9,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".activity.MainActivity"
-            android:label="DoctorsNotebook" >
+            android:label="Notebook" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,20 +18,25 @@
         </activity>
         <activity
             android:name=".activity.AddNewPatientActivity"
-            android:label="AddNewPatientActivity">
+            android:label="Add New Patient">
         </activity>
         <activity
             android:name=".activity.CorrectionActivity"
-            android:label="CorrectionActivity">
-        </activity>
-        <activity
-            android:name=".activity.ListActivity"
-            android:label="ListActivity">
-
+            android:label="Correction">
         </activity>
         <activity
             android:name=".activity.SearchActivity"
-            android:label="SearchActivity">
+            android:label="Search">
+
+        </activity>
+        <activity
+            android:name=".activity.DatabaseActivity"
+            android:label="Database">
+
+        </activity>
+        <activity
+            android:name=".activity.PatientsListActivity"
+            android:label="List of Patients">
 
         </activity>
     </application>

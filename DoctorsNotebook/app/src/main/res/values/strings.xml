@@ -13,7 +13,7 @@
     <string name="activity_main_add_patient_btn">Add Patient</string>
     <string name="activity_main_show_patient_btn">Show Patients</string>
     <string name="activity_main_search_btn">Search</string>
-    <string name="activity_main_delete_all_btn">Delete All</string>
+    <string name="activity_main_to_database">Database</string>
     <string name="title_activity_list">ListActivity</string>
     <string name="activiti_correction_save_changes_btn">Save changes</string>
     <string name="activity_correction_date">Date</string>
@@ -22,7 +22,7 @@
     <string name="activity_correction_diagnosis">Diagnosis</string>
     <string name="activity_correction_anaesthesia">Anaesthesia</string>
     <string name="activity_correction_special">Special note</string>
-
+    <string name="activity_correction_menu_delete">Delete?</string>
     <string name="activity_correction_family_name">Family name</string>
     <string name="activity_correction_payment">Payment</string>
     <string name="title_activity_correction">CorrectionActivity</string>

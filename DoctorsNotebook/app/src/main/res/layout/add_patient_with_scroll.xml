@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_gravity="center_horizontal"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editDate"
+                android:hint="@string/add_patient_date" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editFamilyName"
+                android:hint="@string/activity_correction_family_name" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editName"
+                android:layout_gravity="center_horizontal"
+                android:hint="@string/add_patient_name" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editHistory"
+                android:hint="@string/add_patient_history_number" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editDiagnosis"
+                android:layout_gravity="center_horizontal"
+                android:hint="@string/add_patient_diagnosis" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/editAnaesthesia"
+                android:layout_gravity="center_horizontal"
+                android:hint="@string/add_patient_anaesthesia" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/editSpecialMark"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.86"
+                android:hint="@string/add_patient_special_mark" />
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Payment"
+                android:id="@+id/checkBoxAddPatient"
+                android:layout_gravity="center_horizontal"
+                android:checked="false" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_patient_button"
+                android:id="@+id/addPatient"
+                android:layout_gravity="center_horizontal"
+                android:onClick="toMainActivity" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

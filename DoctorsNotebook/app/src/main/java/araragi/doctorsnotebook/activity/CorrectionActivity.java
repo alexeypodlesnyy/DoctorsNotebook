@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -20,8 +23,6 @@ public class CorrectionActivity extends ActionBarActivity{
 
     DBAdapter patientDataBase;
 
-    private static final String TAG_ALEX = "Alex";
-
     EditText editFamilyName;
     EditText editName;
     EditText editDate;
@@ -33,6 +34,8 @@ public class CorrectionActivity extends ActionBarActivity{
 
     PatientAccount currentPatient;
 
+    long currentId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,7 @@ public class CorrectionActivity extends ActionBarActivity{
         patientDataBase.open();
 
         Long idExtra = getIntent().getLongExtra("id", 0);
+        currentId = idExtra;
 
         Cursor c = patientDataBase.getRow(idExtra);
 
@@ -92,6 +96,31 @@ public class CorrectionActivity extends ActionBarActivity{
     public PatientAccount rowToPatientAccount(Cursor c){
 
         return new PatientAccount(c);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.correction_activity_menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+
+        switch (item.getItemId()){
+            case R.id.correction_menu_delete:
+            {
+                patientDataBase.deleteRow(currentId);
+                Toast.makeText(this, "Account " + currentPatient.getFamilyName() + " deleted",
+                        Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, PatientsListActivity.class);
+                startActivity(intent);
+
+            }
+        }
+        return true;
     }
 
 
