@@ -53,17 +53,7 @@ public class PatientsListActivity extends ActionBarActivity {
 
             }
         });
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Long x = id;
-                boolean d = patientDataBase.deleteRow(x);
-                Toast.makeText(PatientsListActivity.this, "Row was deleted.id = "+x.toString(),
-                        Toast.LENGTH_LONG).show();
 
-                return true;
-            }
-        });
 
 
     }
@@ -71,6 +61,10 @@ public class PatientsListActivity extends ActionBarActivity {
     protected void onDestroy() {
         super.onDestroy();
         patientDataBase.close();
+    }
+    public void toMainMenu(View v){
+        Intent intent = new Intent(PatientsListActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
 

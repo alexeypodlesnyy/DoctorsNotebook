@@ -56,17 +56,7 @@ public class SearchActivity extends ActionBarActivity{
 
             }
         });
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Long x = parent.getItemIdAtPosition(position);
-                patientDataBase.deleteRow(x);
-                Toast.makeText(SearchActivity.this, "Row was deleted.id = "+x.toString(), Toast.LENGTH_LONG).show();
-
-                return true;
-            }
-        });
 
 
     }
@@ -100,6 +90,10 @@ public class SearchActivity extends ActionBarActivity{
 
 
         Cursor c = patientDataBase.getSearchResult(key, s);
+
+        if(c.getCount() == 0){
+            Toast.makeText(this, "Nothing was found", Toast.LENGTH_LONG).show();
+        }
 
         ListAdapter adapter = new ListAdapter(this, c, 0);
         listView.setAdapter(adapter);

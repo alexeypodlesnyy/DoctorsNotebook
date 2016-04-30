@@ -2,12 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/correction_menu_delete"
+        android:id="@+id/correction_activity_delete"
         android:orderInCategory="1"
         android:title="@string/activity_correction_menu_delete"
+        android:onClick="deleteRowDialog"
 
         />
+    <item
+        android:id="@+id/correction_activity_to_main"
+        android:orderInCategory="2"
+        android:title="@string/activity_correction_menu_to_main"
+        android:onClick="goToMainMenu"
 
+        />
 
 
 </menu>

@@ -22,7 +22,8 @@
     <string name="activity_correction_diagnosis">Diagnosis</string>
     <string name="activity_correction_anaesthesia">Anaesthesia</string>
     <string name="activity_correction_special">Special note</string>
-    <string name="activity_correction_menu_delete">Delete?</string>
+    <string name="activity_correction_menu_delete">Delete</string>
+    <string name="activity_correction_menu_to_main">Main</string>
     <string name="activity_correction_family_name">Family name</string>
     <string name="activity_correction_payment">Payment</string>
     <string name="title_activity_correction">CorrectionActivity</string>

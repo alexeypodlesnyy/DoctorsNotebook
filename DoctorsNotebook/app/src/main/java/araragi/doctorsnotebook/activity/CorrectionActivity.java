@@ -1,5 +1,8 @@
 package araragi.doctorsnotebook.activity;
 
+import android.app.AlertDialog;
+import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -86,6 +89,8 @@ public class CorrectionActivity extends ActionBarActivity{
         }
 
 
+
+
     }
     @Override
     protected void onDestroy() {
@@ -106,25 +111,6 @@ public class CorrectionActivity extends ActionBarActivity{
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-
-        switch (item.getItemId()){
-            case R.id.correction_menu_delete:
-            {
-                patientDataBase.deleteRow(currentId);
-                Toast.makeText(this, "Account " + currentPatient.getFamilyName() + " deleted",
-                        Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(this, PatientsListActivity.class);
-                startActivity(intent);
-
-            }
-        }
-        return true;
-    }
-
-
-
     public void correctRow(View v){
         try{
             long id = currentPatient.getId();
@@ -141,7 +127,7 @@ public class CorrectionActivity extends ActionBarActivity{
             patientDataBase.updateRow(id, date, family, name, history, diagnoz, anest, spec, pay);
             Toast.makeText(this, "UPDATED", Toast.LENGTH_LONG).show();
 
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, ListActivity.class);
             startActivity(intent);
 
 
@@ -157,6 +143,31 @@ public class CorrectionActivity extends ActionBarActivity{
         return checked?"da":"net";
     }
 
+    public void deleteRowDialog(MenuItem item) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(CorrectionActivity.this);
+
+        builder.setTitle("Are you sure?")
+                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        patientDataBase.deleteRow(currentId);
+                        Toast.makeText(CorrectionActivity.this, "Account " +
+                            currentPatient.getFamilyName() + " deleted", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(CorrectionActivity.this, PatientsListActivity.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNeutralButton("Cancel", null)
+                .create()
+                .show();
+
+    }
+
+    public void goToMainMenu(MenuItem item){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 
 
 }

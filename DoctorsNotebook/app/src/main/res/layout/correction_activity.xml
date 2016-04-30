@@ -76,15 +76,14 @@
         android:checked="false" />
 
 
-
-    <Button
-        android:layout_width="wrap_content"
+            <Button
+        android:layout_width="142dp"
         android:layout_height="wrap_content"
         android:text="@string/activiti_correction_save_changes_btn"
         android:id="@+id/addPatient"
-        android:layout_gravity="center_horizontal"
         android:onClick="correctRow"
-        android:singleLine="false" />
+        android:singleLine="false"
+                android:layout_gravity="center_horizontal" />
 
         </LinearLayout>
 
